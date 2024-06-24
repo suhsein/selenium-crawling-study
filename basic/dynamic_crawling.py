@@ -1,9 +1,8 @@
 # 셀레늄 웹드라이버
-import openpyxl.workbook
 from selenium import webdriver
 
 # 웹드라이버 객체 생성시 수반될 서비스나 옵션
-from selenium.webdriver.chrome.service import Service
+## from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 
 # 선택자 및 키보드 입력
@@ -19,6 +18,10 @@ import openpyxl
 
 ##########################################################
 
+'''
+동적 크롤링의 경우 로그인, 버튼클릭, 키입력 등이 필요한 크롤링이다.
+대부분 실행 시 브라우저를 켜서 진행하게 된다.
+'''
 
 # 옵션 변수
 customOption = Options()
