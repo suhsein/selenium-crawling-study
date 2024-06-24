@@ -17,6 +17,9 @@ import openpyxl
 
 # 드라이버 생성
 custom_options = Options()
+# 헤드리스 모드로 동작
+custom_options.add_argument('--headless')
+
 browser = webdriver.Chrome(options=custom_options)
 browser.maximize_window()
 
@@ -31,8 +34,8 @@ browser.implicitly_wait(10)
 browser.find_element(By.XPATH, '//*[@id="app"]/div[2]/div/div/a[2]').click()
 
 # 엑셀 파일, 시트 만들기
-xlsx_file = openpyxl.Workbook()
-xlsx_sheet = xlsx_file.active
+## xlsx_file = openpyxl.Workbook()
+## xlsx_sheet = xlsx_file.active
 
 # 긁어오기
 for i in range(1, 101, 1):
@@ -42,11 +45,11 @@ for i in range(1, 101, 1):
     artist = browser.find_element(By.XPATH, f'{path}/td[5]/span/span/span/a/span').text # 가수명
     
     # sheet 셀에 저장
-    xlsx_sheet.cell(row=i, column= 1).value = rank
-    xlsx_sheet.cell(row=i, column= 2).value = title
-    xlsx_sheet.cell(row=i, column= 3).value = artist
+    ## xlsx_sheet.cell(row=i, column= 1).value = rank
+    ## xlsx_sheet.cell(row=i, column= 2).value = title
+    ## xlsx_sheet.cell(row=i, column= 3).value = artist
     
     ## print(rank, title, artist)
 
 # 엑셀 파일 저장
-xlsx_file.save('vibe_top100.xlsx')
+## xlsx_file.save('vibe_top100.xlsx')
