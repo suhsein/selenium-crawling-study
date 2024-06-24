@@ -1,5 +1,15 @@
+import os
 import requests
 from bs4 import BeautifulSoup as bs
+from urllib.request import urlretrieve
+
+
+'''
+정적 크롤링 
+-> 로그인, 버튼클릭, 키입력 등의 동적 요소가 필요없는 크롤링을 의미한다.
+
+정적 크롤링의 경우 브라우저 없이도 서버상에서 http 호출을 통해 데이터를 가져온다. 
+'''
 
 url = 'https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=%EC%97%90%EC%9D%B4%ED%8B%B0%EC%A6%88'
 
@@ -47,7 +57,6 @@ for img in news_thumbnail :
     if img is not None and 'data-lazysrc' in img.attrs:
         link_thumbnail.append(img.attrs['data-lazysrc'])
 
-import os
 
 path_folder = '/Users/user1/Desktop/img/'
 
@@ -56,8 +65,6 @@ if not os.path.isdir(path_folder) :
 
 
 # urlretrieve로 해당 경로의 파일을 다운로드 받음(파일 경로(url encoded), 로컬 저장경로(이름 포함))
-from urllib.request import urlretrieve
-
 i = 0
 
 for link in link_thumbnail:
